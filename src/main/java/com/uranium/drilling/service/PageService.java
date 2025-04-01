@@ -11,7 +11,7 @@ import java.util.List;
 public class PageService {
 
     public Pageable createPageRequest(int page, int size, List<String> sortParams) {
-        Sort sort = Sort.unsorted(); // По умолчанию без сортировки
+        Sort sort = Sort.by("id"); // По умолчанию сортировка по ID
 
         if (sortParams != null && !sortParams.isEmpty()) {
             List<Sort.Order> orders = sortParams.stream()

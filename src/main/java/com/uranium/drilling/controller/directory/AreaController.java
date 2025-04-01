@@ -1,8 +1,8 @@
 package com.uranium.drilling.controller.directory;
 
-import com.uranium.drilling.dto.AreaDTO;
-import com.uranium.drilling.entity.Area;
-import com.uranium.drilling.service.AreaService;
+import com.uranium.drilling.dto.directory.AreaDTO;
+import com.uranium.drilling.entity.directory.Area;
+import com.uranium.drilling.service.directory.AreaService;
 import com.uranium.drilling.service.PageService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

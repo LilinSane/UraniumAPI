@@ -1,12 +1,11 @@
 package com.uranium.drilling.controller.directory;
 
-import com.uranium.drilling.dto.CustomerDTO;
-import com.uranium.drilling.entity.Customer;
-import com.uranium.drilling.service.CustomerService;
+import com.uranium.drilling.dto.directory.CustomerDTO;
+import com.uranium.drilling.entity.directory.Customer;
+import com.uranium.drilling.service.directory.CustomerService;
 import com.uranium.drilling.service.PageService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
