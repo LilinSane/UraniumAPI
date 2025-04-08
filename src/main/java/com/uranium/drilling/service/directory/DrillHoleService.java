@@ -4,6 +4,7 @@ import com.uranium.drilling.dto.directory.DrillHoleDTO;
 import com.uranium.drilling.entity.directory.Area;
 import com.uranium.drilling.entity.directory.DrillHole;
 import com.uranium.drilling.entity.directory.DrillHoleType;
+import com.uranium.drilling.exception.ForeignKeyConstraintException;
 import com.uranium.drilling.exception.ResourceNotFoundException;
 import com.uranium.drilling.repository.directory.AreaRepository;
 import com.uranium.drilling.repository.directory.DrillHoleRepository;
@@ -89,10 +90,9 @@ public class DrillHoleService {
         if (!drillHoleRepository.existsById(id)) {
             throw new ResourceNotFoundException("Скважина с кодом " + id + " не найдена");
         }
-        //TODO
-//        if (drillHoleRepository.hasLinkedEntities(id)) {
-//            throw new ForeignKeyConstraintException("Невозможно удалить скважину, так как на нее ссылаются другие объекты");
-//        }
+        if (drillHoleRepository.hasLinkedHeader(id)) {
+            throw new ForeignKeyConstraintException("Невозможно удалить объект, так как на него ссылается другой объект");
+        }
 
         drillHoleRepository.deleteById(id);
     }

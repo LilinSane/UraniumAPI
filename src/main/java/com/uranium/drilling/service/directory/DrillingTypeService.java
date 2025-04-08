@@ -2,6 +2,7 @@ package com.uranium.drilling.service.directory;
 
 import com.uranium.drilling.dto.directory.DrillingTypeDTO;
 import com.uranium.drilling.entity.directory.DrillingType;
+import com.uranium.drilling.exception.ForeignKeyConstraintException;
 import com.uranium.drilling.exception.ResourceNotFoundException;
 import com.uranium.drilling.repository.directory.DrillingTypeRepository;
 import org.springframework.data.domain.Page;
@@ -53,10 +54,10 @@ public class DrillingTypeService {
         if (!drillingTypeRepository.existsById(id)) {
             throw new ResourceNotFoundException("Вид бурения с кодом " + id + " не найден");
         }
-        //TODO
-//        if (drillHoleTypeRepository.hasLinkedDrillHoles(id)) {
-//            throw new ForeignKeyConstraintException("Невозможно удалить объект, так как на него ссылается другой объект");
-//        }
+
+        if (drillingTypeRepository.hasLinkedHeader(id)) {
+            throw new ForeignKeyConstraintException("Невозможно удалить объект, так как на него ссылается другой объект");
+        }
         drillingTypeRepository.deleteById(id);
     }
 }
