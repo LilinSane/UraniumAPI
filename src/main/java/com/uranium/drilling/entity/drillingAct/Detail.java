@@ -37,4 +37,5 @@ public class Detail {
     WorkSubType workSubType;
     String resultGIS;
     String drillHoleState;
+    Double acted;
 }
