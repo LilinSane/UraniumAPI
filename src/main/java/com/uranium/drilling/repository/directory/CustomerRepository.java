@@ -20,3 +20,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     """)
     boolean hasLinkedAreas(@Param("customerId") Long customerId);
 }
+
+

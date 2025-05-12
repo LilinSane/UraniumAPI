@@ -18,3 +18,5 @@ public interface AreaRepository extends JpaRepository<Area, Long> {
     """)
     boolean hasLinkedDrillHole(@Param("areaId") Long areaId);
 }
+
+

@@ -11,8 +11,7 @@ import java.util.List;
 public class PageService {
 
     public Pageable createPageRequest(int page, int size, List<String> sortParams) {
-        Sort sort = Sort.by("id"); // По умолчанию сортировка по ID
-
+        Sort sort = Sort.by("id");
         if (sortParams != null && !sortParams.isEmpty()) {
             List<Sort.Order> orders = sortParams.stream()
                     .map(param -> {
@@ -26,7 +25,6 @@ public class PageService {
                     .toList();
             sort = Sort.by(orders);
         }
-
         return PageRequest.of(page, size, sort);
     }
 }
